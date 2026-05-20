@@ -8,7 +8,8 @@
     "PatternEncodingTermMenuMixin"
   ],
   "client": [
-    "PatternEncodingTermScreenMixin"
+    "PatternEncodingTermScreenMixin",
+    "ScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 0
