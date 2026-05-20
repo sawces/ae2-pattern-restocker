@@ -8,7 +8,7 @@ import appeng.core.definitions.AEItems;
 import appeng.helpers.IPatternTerminalMenuHost;
 import appeng.menu.me.items.PatternEncodingTermMenu;
 import appeng.menu.slot.RestrictedInputSlot;
-import com.vaded.ae2patternrestocker.IPatternRestockerMenu;
+import com.vaded.ae2patternrestocker.AE2PatternRestockerConfig;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PatternEncodingTermMenu.class)
-public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerMenu {
+public abstract class PatternEncodingTermMenuMixin {
     @Shadow @Final private RestrictedInputSlot blankPatternSlot;
     @Shadow @Final private RestrictedInputSlot encodedPatternSlot;
 
@@ -41,6 +41,7 @@ public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerM
     private void ae2PatternRestocker$fillBlankPattern(CallbackInfo ci) {
         PatternEncodingTermMenu self = (PatternEncodingTermMenu) (Object) this;
         if (self.isClientSide()) return;
+        if (!AE2PatternRestockerConfig.AUTO_RESTOCK.get()) return;
         if (!this.blankPatternSlot.getItem().isEmpty()) return;
         MEStorage storage = ((MEStorageMenuAccessor) self).ae2PatternRestocker$getStorage();
         if (storage == null) return;
@@ -48,11 +49,6 @@ public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerM
         long extracted = storage.extract(key, 64, Actionable.MODULATE, IActionSource.ofPlayer(self.getPlayer()));
         if (extracted <= 0) return;
         this.blankPatternSlot.set(AEItems.BLANK_PATTERN.stack((int) extracted));
-    }
-
-    @Override
-    public void ae2PatternRestocker$initiateReturn() {
-        ((AEBaseMenuAccessor) this).ae2PatternRestocker$sendClientAction("ae2pr$returnPattern");
     }
 
     @Unique
