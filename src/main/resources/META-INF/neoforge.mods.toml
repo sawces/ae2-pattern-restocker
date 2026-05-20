@@ -1,0 +1,36 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "ae2_pattern_restocker"
+version = "${mod_version}"
+displayName = "AE2 Pattern Restocker"
+authors = "Vaded"
+description = '''
+When encoding an AE2 pattern, automatically refills the blank pattern slot from the ME network if the slot is empty.
+'''
+
+[[mixins]]
+config = "ae2_pattern_restocker.mixins.json"
+
+[[dependencies.ae2_pattern_restocker]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ae2_pattern_restocker]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ae2_pattern_restocker]]
+modId = "ae2"
+type = "required"
+versionRange = "[19,)"
+ordering = "AFTER"
+side = "BOTH"

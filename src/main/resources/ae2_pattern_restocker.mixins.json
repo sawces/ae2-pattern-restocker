@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.vaded.ae2patternrestocker.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MEStorageMenuAccessor",
+    "PatternEncodingTermMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

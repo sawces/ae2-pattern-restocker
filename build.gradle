@@ -1,0 +1,41 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.107'
+}
+
+version = mod_version
+group = mod_group_id
+
+def neo_version_minor = neo_version.tokenize('.').take(2).join('.')
+
+base {
+    archivesName = "${mod_id}-neoforge-${neo_version_minor}"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = neo_version
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    compileOnly "org.appliedenergistics:appliedenergistics2:${ae2_version}"
+}
+
+tasks.named('processResources', ProcessResources) {
+    var replaceProperties = [mod_version: mod_version]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
