@@ -1,0 +1,17 @@
+# Gradle
+.gradle/
+build/
+
+# NeoForge dev environment
+run/
+runs/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+out/
+
+# OS
+.DS_Store
+Thumbs.db
