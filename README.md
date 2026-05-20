@@ -12,7 +12,7 @@ Some larger AE2 addon mods include similar functionality, but also introduce man
 
 | Minecraft | NeoForge | AE2      |
 |-----------|----------|----------|
-| 1.21.1    | 21.1.x   | 19.2.x   |
+| 26.1.2    | 26.1.x   | 26.1.x   |
 
 ## Installation
 
