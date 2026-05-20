@@ -6,6 +6,9 @@
     "MEStorageMenuAccessor",
     "PatternEncodingTermMenuMixin"
   ],
+  "client": [
+    "PatternEncodingTermScreenMixin"
+  ],
   "injectors": {
     "defaultRequire": 0
   }
