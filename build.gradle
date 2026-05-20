@@ -12,7 +12,7 @@ base {
     archivesName = "${mod_id}-neoforge-${neo_version_minor}"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version as int)
 
 neoForge {
     version = neo_version
