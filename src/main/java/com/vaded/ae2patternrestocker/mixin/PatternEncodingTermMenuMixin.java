@@ -25,16 +25,6 @@ public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerM
     @Shadow @Final private RestrictedInputSlot blankPatternSlot;
     @Shadow @Final private RestrictedInputSlot encodedPatternSlot;
 
-    @Shadow
-    protected final void registerClientAction(String name, Runnable callback) {
-        throw new AssertionError();
-    }
-
-    @Shadow
-    protected final void sendClientAction(String action) {
-        throw new AssertionError();
-    }
-
     @Inject(
         method = "<init>(Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lappeng/helpers/IPatternTerminalMenuHost;Z)V",
         at = @At("TAIL")
@@ -43,7 +33,8 @@ public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerM
             MenuType<?> menuType, int id, Inventory ip,
             IPatternTerminalMenuHost host, boolean bindInventory,
             CallbackInfo ci) {
-        registerClientAction("ae2pr$returnPattern", this::ae2PatternRestocker$doReturn);
+        ((AEBaseMenuAccessor) this).ae2PatternRestocker$registerClientAction(
+                "ae2pr$returnPattern", this::ae2PatternRestocker$doReturn);
     }
 
     @Inject(method = "encode", at = @At("HEAD"))
@@ -61,7 +52,7 @@ public abstract class PatternEncodingTermMenuMixin implements IPatternRestockerM
 
     @Override
     public void ae2PatternRestocker$initiateReturn() {
-        sendClientAction("ae2pr$returnPattern");
+        ((AEBaseMenuAccessor) this).ae2PatternRestocker$sendClientAction("ae2pr$returnPattern");
     }
 
     @Unique
