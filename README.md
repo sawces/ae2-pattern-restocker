@@ -16,6 +16,13 @@ No special cards, upgrades, or additional items required.
 
 Some larger AE2 addon mods include similar functionality, but also introduce many additional features, mechanics, and balance changes. This mod exists to provide only these quality-of-life improvements in a minimal, standalone package that can be added to modpacks without significantly altering their intended experience.
 
+## Compatibility
+
+| Minecraft | NeoForge | AE2    | Branch |
+|-----------|----------|--------|--------|
+| 1.21.1    | 21.1.x   | 19.2.x | [1.21.1](https://github.com/sawces/ae2-pattern-restocker/tree/1.21.1) |
+| 26.1.2    | 26.1.x   | 26.1.x | [26.1.2](https://github.com/sawces/ae2-pattern-restocker/tree/26.1.2) |
+
 ## Configuration
 
 Both features can be toggled independently in `config/ae2_pattern_restocker-common.toml`. Both are enabled by default.
