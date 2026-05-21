@@ -17,3 +17,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Blank pattern extraction correctly respects ME network security permissions; the action is attributed to the player operating the terminal rather than being anonymous
 - Game no longer crashes on startup if an AE2 update causes mixin incompatibility; the mod silently disables itself instead
+- Updated client action registration to use the `ClientActionKey` API introduced in AE2 26.1.x; fixes crash on startup with ATM11 and other 26.1.x modpacks

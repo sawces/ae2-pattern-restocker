@@ -6,6 +6,7 @@ import appeng.api.stacks.AEItemKey;
 import appeng.api.storage.MEStorage;
 import appeng.core.definitions.AEItems;
 import appeng.helpers.IPatternTerminalMenuHost;
+import appeng.menu.guisync.ClientActionKey;
 import appeng.menu.me.items.PatternEncodingTermMenu;
 import appeng.menu.slot.RestrictedInputSlot;
 import com.vaded.ae2patternrestocker.AE2PatternRestockerConfig;
@@ -34,7 +35,7 @@ public abstract class PatternEncodingTermMenuMixin {
             IPatternTerminalMenuHost host, boolean bindInventory,
             CallbackInfo ci) {
         ((AEBaseMenuAccessor) this).ae2PatternRestocker$registerClientAction(
-                "ae2pr$returnPattern", this::ae2PatternRestocker$doReturn);
+                new ClientActionKey<>("ae2pr$returnPattern"), this::ae2PatternRestocker$doReturn);
     }
 
     @Inject(method = "encode", at = @At("HEAD"))

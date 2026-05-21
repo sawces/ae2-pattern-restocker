@@ -4,6 +4,7 @@ import appeng.api.config.ActionItems;
 import appeng.client.gui.me.items.PatternEncodingTermScreen;
 import appeng.client.gui.widgets.ActionButton;
 import appeng.menu.SlotSemantics;
+import appeng.menu.guisync.ClientActionKey;
 import appeng.menu.me.items.PatternEncodingTermMenu;
 import com.vaded.ae2patternrestocker.AE2PatternRestockerConfig;
 import net.minecraft.client.gui.components.Renderable;
@@ -41,7 +42,7 @@ public abstract class PatternEncodingTermScreenMixin {
 
         if (ae2PatternRestocker$returnButton == null) {
             ae2PatternRestocker$returnButton = new ActionButton(ActionItems.S_CLOSE,
-                    () -> ((AEBaseMenuAccessor) menu).ae2PatternRestocker$sendClientAction("ae2pr$returnPattern"));
+                    () -> ((AEBaseMenuAccessor) menu).ae2PatternRestocker$sendClientAction(new ClientActionKey<>("ae2pr$returnPattern")));
             ae2PatternRestocker$returnButton.setHalfSize(true);
             ae2PatternRestocker$returnButton.setDisableBackground(true);
             ae2PatternRestocker$returnButton.setMessage(Component.literal("Restocker\nClear & Restock Pattern"));
