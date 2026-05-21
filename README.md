@@ -2,8 +2,13 @@
 
 A lightweight quality-of-life addon for [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2) that enhances the Pattern Encoding Terminal with two features:
 
-- **Auto-restock**: Automatically refills the blank pattern slot from blank patterns stored in your ME network when the slot is empty and you click Encode.
-- **Return-to-blank button**: A small X badge on the encoded pattern slot converts the encoded pattern back to a blank pattern and returns it to the blank slot, ME storage, or your inventory (in that priority order).
+**Auto-restock** — Automatically refills the blank pattern slot from blank patterns stored in your ME network when the slot is empty and you click Encode.
+
+![Auto-restock demo](docs/ae2-pattern-restocker-replacement.gif)
+
+**Return-to-blank button** — A small X badge on the encoded pattern slot converts the encoded pattern back to a blank pattern and returns it to the blank slot, ME storage, or your inventory (in that priority order).
+
+![Return-to-blank demo](docs/ae2-pattern-restocker-clear-and-restock.gif)
 
 No special cards, upgrades, or additional items required.
 
